@@ -151,6 +151,16 @@ public class MainGui extends JFrame {
 
         trainButton.addActionListener(e -> {
             String letter = (String) trainAsCombo.getSelectedItem();
+            ArrayList<Integer> pixels = drawingPanel.getPixels();
+            StringBuilder finalPix = new StringBuilder();
+            StringBuilder output = new StringBuilder();
+            for( int i=0; i<pixels.size(); i++){
+                finalPix.append(String.valueOf(pixels.get(i)));
+                output.append(String.valueOf(pixels.get(i))).append(", ");
+            }
+
+            finalPix.toString();
+            output.toString();
             networkTrainer.addTrainingSet(new TrainingSet(drawingPanel.getPixels(), GoodOutputs.getInstance().getGoodOutput(letter)));
             ReadWriteFile.saveToFile(drawingPanel.getPixels(), letter);
         });
