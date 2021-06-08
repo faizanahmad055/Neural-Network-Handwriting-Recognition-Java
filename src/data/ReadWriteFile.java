@@ -3,6 +3,7 @@ package data;
 import neural.TrainingSet;
 
 import java.io.*;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,7 +19,7 @@ public class ReadWriteFile {
         for (int i = 0; i < 26; i++) {
             char letterValue = (char) (i + 65);
             String letter = String.valueOf(letterValue);
-            for (ArrayList<Integer> list : readFromFile("/" + letter + ".txt")) {
+            for (ArrayList<Integer> list : readFromFile("resources/" + letter + ".txt")) {
                 trainingSets.add(new TrainingSet(list, GoodOutputs.getInstance().getGoodOutput(letter)));
             }
         }
@@ -30,7 +31,9 @@ public class ReadWriteFile {
         ArrayList<ArrayList<Integer>> inputs = new ArrayList<>();
 
         try {
-            InputStream in = ReadWriteFile.class.getClass().getResourceAsStream(filename);
+            //InputStream in = ReadWriteFile.class.getClass().getResourceAsStream(filename);
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            InputStream in = new FileInputStream(filename);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
             while ((line = reader.readLine()) != null) {
