@@ -4,12 +4,7 @@ import neural.TrainingSet;
 
 import java.io.*;
 import java.io.FileInputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ReadWriteFile {
 
@@ -31,8 +26,6 @@ public class ReadWriteFile {
         ArrayList<ArrayList<Integer>> inputs = new ArrayList<>();
 
         try {
-            //InputStream in = ReadWriteFile.class.getClass().getResourceAsStream(filename);
-            //BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             InputStream in = new FileInputStream(filename);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
