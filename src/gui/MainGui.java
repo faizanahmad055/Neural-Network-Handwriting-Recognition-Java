@@ -69,7 +69,7 @@ public class MainGui extends JFrame {
         panel.setPreferredSize(new Dimension(410, 440));
 
         drawLetterButton = new JButton("Draw:");
-        drawLetterCombo = new JComboBox<>(new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Z", "Y", "2"});
+        drawLetterCombo = new JComboBox<>(new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"});
 
         drawingPanel = new DrawingPanel(400, 400, RESOLUTION);
 
@@ -115,7 +115,7 @@ public class MainGui extends JFrame {
 
         centerPanel.add(new JLabel("Train as:", SwingConstants.CENTER), gbc);
 
-        trainAsCombo = new JComboBox<>(new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Z", "Y", "2"});
+        trainAsCombo = new JComboBox<>(new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"});
         trainAsCombo.setAlignmentX(Component.CENTER_ALIGNMENT);
         trainAsCombo.setMaximumSize(new Dimension((int) trainAsCombo.getPreferredSize().getWidth(), 30));
         centerPanel.add(trainAsCombo, gbc);
@@ -223,7 +223,7 @@ public class MainGui extends JFrame {
         StringBuilder sb = new StringBuilder();
         ArrayList<Double> outputs = networkTrainer.getOutputs();
         for (int i = 0; i < outputs.size(); i++) {
-            int letterValue = i + 65;
+            int letterValue = i + 48;
             sb.append((char) letterValue);
             double value = outputs.get(i);
             if (value < 0.01)

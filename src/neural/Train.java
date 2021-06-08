@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Train {
 
-    private static final int NEURON_COUNT = 26;
+    private static final int NEURON_COUNT = 10;
 
     private Network network;
     private ArrayList<TrainingSet> trainingSets;

@@ -16,8 +16,8 @@ public class ReadWriteFile {
     public static ArrayList<TrainingSet> readTrainingSets() {
         ArrayList<TrainingSet> trainingSets = new ArrayList<>();
 
-        for (int i = 0; i < 26; i++) {
-            char letterValue = (char) (i + 65);
+        for (int i = 0; i < 10; i++) {
+            char letterValue = (char) (i + 48);
             String letter = String.valueOf(letterValue);
             for (ArrayList<Integer> list : readFromFile("resources/" + letter + ".txt")) {
                 trainingSets.add(new TrainingSet(list, GoodOutputs.getInstance().getGoodOutput(letter)));
